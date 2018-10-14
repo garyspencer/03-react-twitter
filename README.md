@@ -115,10 +115,9 @@ $ cd ../
 * Admin can suspend/unsuspend users
 
 ## Automatic Deploy to Heroku
-*Optional* [Installing Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
-
+*[Optionally Install Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)*
 
   - create heroku app, set buildpack
-    - `heroku create <APP_NAME> --buildpack mars/create-react-app` 
-    - or in the heroku web UI create a new app, navigate to **Settings**, locate the buildpack section, add the buildpack `mars/create-react-app`, remove any others such as `nodejs`
+    - using the **CLI** `heroku create <APP_NAME> --buildpack mars/create-react-app` 
+    - or in the [Heroku Dashboard](https://dashboard.heroku.com) create a new app, navigate to **Settings**, locate the buildpack section, add the buildpack `mars/create-react-app` ([view on GitHub](https://github.com/mars/create-react-app-buildpack)), remove any others such as `nodejs`
   - For automation, in the **Deploy** set up github integration when master branch changes in github fork
