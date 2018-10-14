@@ -115,9 +115,18 @@ $ cd ../
 * Admin can suspend/unsuspend users
 
 ## Automatic Deploy to Heroku
-*[Optionally Install Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)*
+*[Highly Suggested - Install Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)*
 
   - create heroku app, set buildpack
     - using the **CLI** `heroku create <APP_NAME> --buildpack mars/create-react-app` 
     - or in the [Heroku Dashboard](https://dashboard.heroku.com) create a new app, navigate to **Settings**, locate the buildpack section, add the buildpack `mars/create-react-app` ([view on GitHub](https://github.com/mars/create-react-app-buildpack)), remove any others such as `nodejs`
   - For automation, in the **Deploy** set up github integration when master branch changes in github fork
+
+### Heroku Database!
+At this point
+- in your app's overview section, find addons section and add `Heroku Postgres`
+- set NODE_ENV to production so knex uses the right database during runtime.
+  - in your **Settings** tab of heroku dashboard, reveal config vars, add a variable with name `NODE_ENV` and value `production`  (should one of the keys in knexfile.js)
+  - **CLI method:**  `$ heroku config:set NODE_ENV="production" -a <APPNAME>`
+- seed and migrate your new prod db with `$ yarn run seed-heroku -a <APPNAME>`
+

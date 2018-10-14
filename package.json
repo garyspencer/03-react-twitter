@@ -24,7 +24,8 @@
     "server": "nodemon server/index.js",
     "build": "react-scripts build",
     "test": "cd server/; NODE_ENV=test mocha --exit",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "seed-heroku": "heroku run 'cd server && knex migrate:latest --env production && knex seed:run --env production'"
   },
   "devDependencies": {
     "babel-preset-airbnb": "^2.6.0",
