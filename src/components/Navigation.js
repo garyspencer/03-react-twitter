@@ -11,21 +11,21 @@ const style = {
   margin: 12,
 };
 
-class Navigation extends Component{
+class Navigation extends Component {
 
-  loginButton(){
-    if(this.props.user.id === undefined){
-      return(
+  loginButton() {
+    if (this.props.user.id === undefined) {
+      return (
         <Link to='/login'>
-          <FlatButton label="Login" secondary={this.props.location.pathname === "/login"}/>
+          <FlatButton label="Login" secondary={this.props.location.pathname === "/login"} />
         </Link>
       );
     }
   }
 
-  accountButton(){
-    if(this.props.user.id !== undefined) {
-      return(
+  accountButton() {
+    if (this.props.user.id !== undefined) {
+      return (
         <Link to='/account'>
           <FlatButton label="Account" secondary={this.props.location.pathname === "/account"} />
         </Link>
@@ -33,57 +33,57 @@ class Navigation extends Component{
     }
   }
 
-  logoutButton(){
-    if(this.props.user.id !== undefined){
-      return(
+  logoutButton() {
+    if (this.props.user.id !== undefined) {
+      return (
         <Link to='/'>
-          <FlatButton 
-            onClick={ () => this.props.loginActions.logoutUser() }
+          <FlatButton
+            onClick={() => this.props.loginActions.logoutUser()}
             label="Log Out" secondary={this.props.location.pathname === "/"} />
         </Link>
       );
     }
   }
 
-  registerButton(){
-    if(this.props.user.id === undefined){
-      return(
+  registerButton() {
+    if (this.props.user.id === undefined) {
+      return (
         <Link to='/register'>
-          <FlatButton label="Register" secondary={this.props.location.pathname === "/register"}/>
+          <FlatButton label="Register" secondary={this.props.location.pathname === "/register"} />
         </Link>
       );
     }
   }
 
-  render () {
+  render() {
     return (
-    <AppBar
-      // iconClassNameRight="muidocs-icon-navigation-expand-more"
-      iconElementLeft={<div></div>}
-      iconElementRight={
-         <div className='nav-row'>
+      <AppBar
+        // iconClassNameRight="muidocs-icon-navigation-expand-more"
+        iconElementLeft={<div></div>}
+        iconElementRight={
+          <div className='nav-row'>
             <img src='./white-logo.png' alt='react-twitter logo' className='nav-logo' />
-          <Link to='/'>
-            <FlatButton label="Dashboard" secondary={this.props.location.pathname === "/"}/>
-          </Link>
-          { this.accountButton() }
-          { this.loginButton() }
-          { this.registerButton() }
-          { this.logoutButton() }
-        </div>}
+            <Link to='/'>
+              <FlatButton label="Dashboard" secondary={this.props.location.pathname === "/"} />
+            </Link>
+            {this.accountButton()}
+            {this.loginButton()}
+            {this.registerButton()}
+            {this.logoutButton()}
+          </div>}
       />
     )
   };
 }
 
-function mapStateToProps(state, props){
+function mapStateToProps(state, props) {
   return {
     app: state.app,
     user: state.user
   }
 }
 
-function mapDispatchToProps(dispatch){
+function mapDispatchToProps(dispatch) {
   return {
     loginActions: bindActionCreators(loginActions, dispatch)
   }
