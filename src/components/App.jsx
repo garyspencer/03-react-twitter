@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import TweetInputBox from './TweetInputBox';
 import './App.css';
-import Profile from './Profile/Profile';
-import Footer from './Footer/Footer';
+import Splash from './Splash/Splash';
 
 class App extends Component {
   constructor(props) {
@@ -12,13 +10,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1 className="App-title">React Twitter</h1>
-        <TweetInputBox />
-        <Profile />
-        <Footer />
+        <Splash username="Gary" />
       </div>
     );
   }
 }
 
 export default App;
+

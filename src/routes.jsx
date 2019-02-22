@@ -9,7 +9,7 @@ import SampleReduxContainer from './components/SampleReduxContainer';
 
 export default (
   <div>
-    <Navigation />
+    {/* <Navigation /> */}
     <div>
       <Switch>
         <Route exact path={'/'} component={App} />
